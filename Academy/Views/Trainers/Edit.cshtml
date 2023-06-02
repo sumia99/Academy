@@ -1,0 +1,81 @@
+﻿@model Academy.Models.Trainer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Trainer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TrainerId" />
+            <div class="form-group">
+                <label asp-for="TrainerFName" class="control-label"></label>
+                <input asp-for="TrainerFName" class="form-control" />
+                <span asp-validation-for="TrainerFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainerLName" class="control-label"></label>
+                <input asp-for="TrainerLName" class="form-control" />
+                <span asp-validation-for="TrainerLName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneTraniner" class="control-label"></label>
+                <input asp-for="PhoneTraniner" class="form-control" />
+                <span asp-validation-for="PhoneTraniner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CVFile" class="control-label"></label>
+                <input asp-for="CVFile" class="form-control" />
+                <span asp-validation-for="CVFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainerImg" class="control-label"></label>
+                <input asp-for="TrainerImg" class="form-control" />
+                <span asp-validation-for="TrainerImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FB" class="control-label"></label>
+                <input asp-for="FB" class="form-control" />
+                <span asp-validation-for="FB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Twitter" class="control-label"></label>
+                <input asp-for="Twitter" class="form-control" />
+                <span asp-validation-for="Twitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Linkedin" class="control-label"></label>
+                <input asp-for="Linkedin" class="form-control" />
+                <span asp-validation-for="Linkedin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

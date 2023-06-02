@@ -1,0 +1,90 @@
+ [HttpGet]
+        public IActionResult EditProduct(string id)
+        {
+
+            if (id == null)
+            {
+                return RedirectToAction("ProductList");
+            }
+            var data = db.Products.Find(id);
+            if (data == null)
+            {
+                return RedirectToAction("ProductList");
+            }
+            return View(data);
+        }
+      
+        public IActionResult DeleteProduct(string id)
+        {
+            return View();
+        }
+     
+        [HttpGet]
+        public IActionResult AddProduct()
+        {
+            ViewBag.allDept = new SelectList(db.Categories, "CategoryId", "CategoryName");
+            return View();
+        }
+        [HttpPost]
+     
+        public async Task<IActionResult> AddProduct(Product p) {
+            if (ModelState.IsValid)
+            {
+               db.Products.Add(p);
+               await db.SaveChangesAsync();
+               return RedirectToAction("ProductList");
+            }
+            return View(p);
+        }
+       
+        [HttpGet]
+        public IActionResult CreatProduct()
+        {
+            ViewBag.allDept = new SelectList(db.Categories, "CategoryId", "CategoryName");
+            return View();
+        }
+        [HttpPost]
+      
+        public async Task<IActionResult> CreatProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Products.Add(product);
+             await   db.SaveChangesAsync();
+                return RedirectToAction("ProductList");
+            }
+            return View(product);
+        }
+
+
+
+
+------------------------------------
+List<Product> products = new List<Product>();
+            {
+                products.Add(new Product
+                {
+                    Id = 1,
+                    Name = "Test",
+                    Price = 50,
+
+                });
+                products.Add(new Product
+                {
+                    Id = 2,
+                    Name = "Test1",
+                    Price = 500,
+
+                });
+                return View(products);
+            }
+           
+ @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+         ----------------------------------
+ <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
